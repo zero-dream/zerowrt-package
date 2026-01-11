@@ -1,0 +1,18 @@
+#!/bin/bash
+# Copyright (C) 2000 ZeroDream
+
+# --------------------------------------------------
+
+cd "$WRT_MainPath/"
+
+# --------------------------------------------------
+
+# CollectArtifact
+if [[ "$WRT_TEST" == 'false' && "$WRT_ONLY_CONFIG" == 'false' ]]; then
+  packagePath="$ZD_ArtifactUploadPath/Package" && mkdir -p "$packagePath"
+  cp -a "$CI_TempPath/CompressPackage/." "$packagePath/"
+fi
+
+# --------------------------------------------------
+
+exit 0

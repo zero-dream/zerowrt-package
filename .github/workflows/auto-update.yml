@@ -1,0 +1,80 @@
+# ! 本项目私有文件
+
+# CI 项目
+name: auto-update
+
+# CI 权限
+permissions: write-all
+
+# CI 计划
+on:
+  # 自动运行: 每天早上 2 点
+  schedule:
+    - cron: 0 18 * * *
+  # 手动运行
+  workflow_dispatch:
+    inputs:
+      COMMIT:
+        description: 'Commit Message'
+        required: false
+        type: string
+        default: ''
+
+# CI 环境
+env:
+  # GITHUB ENV
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  # CI ENV
+  CI_COMMIT: ${{inputs.COMMIT || ''}} # 为自动编译设置默认值
+
+# CI 任务
+jobs:
+  auto-update:
+    name: auto-update
+    runs-on: ubuntu-latest
+    steps:
+      - name: CheckoutProject
+        uses: actions/checkout@main
+        with:
+          token: ${{secrets.WORKFLOW_TOKEN}}
+
+      - name: InitWorkflow
+        run: |
+          WorkflowPath="$RUNNER_TEMP/Workflow-$(uuidgen | tr -d '-')"
+          git clone --depth=1 https://github.com/zero-dream/action-workflow.git "$WorkflowPath/"
+          chmod +x "$WorkflowPath/zerodream/main/init.sh"
+          source "$WorkflowPath/zerodream/main/init.sh"
+          # --------------------------------------------------
+          source "$ZD_ScriptLibPath/hook.sh"
+          hook 'AutoUpdate/InitWorkflow'
+
+      - name: UpdateRepo
+        run: |
+          # Source
+          source "$ZD_ScriptLibPath/gitPush.sh"
+          # GitClone
+          updatePath="$RUNNER_TEMP/AutoUpdate-$(uuidgen | tr -d '-')"
+          git clone --depth=1 https://github.com/$GITHUB_REPOSITORY.git "$updatePath/"
+          repoPath="$RUNNER_TEMP/ZeroWrtFirmware-$(uuidgen | tr -d '-')"
+          git clone --depth=1 https://github.com/zero-dream/zerowrt-firmware.git "$repoPath/"
+          # HandleGitDir
+          rm -rf "$updatePath/.git/"
+          cp -a "$GITHUB_WORKSPACE/.git/" "$updatePath/"
+          # CopyWorkflowFile
+          coverArr=(
+            'auto-update'
+            'clean-release'
+          )
+          for cover in "${coverArr[@]}"; do
+            cp -a "$updatePath/.github/workflows/$cover.yml" "$repoPath/.github/workflows/"
+          done
+          find "$updatePath/.github/workflows/" -mindepth 1 -delete
+          cp -a "$repoPath/.github/workflows/." "$updatePath/.github/workflows/"
+          # MergeRepo
+          find "$GITHUB_WORKSPACE/" -mindepth 1 -delete
+          cp -a "$updatePath/." "$GITHUB_WORKSPACE/"
+          # PushFile
+          gitPush "${{github.ref}}" "$CI_COMMIT"
+          # DeleteRepo
+          rm -rf "$updatePath/"
+          rm -rf "$repoPath/"

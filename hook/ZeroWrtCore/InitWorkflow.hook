@@ -1,0 +1,16 @@
+#!/bin/bash
+# Copyright (C) 2000 ZeroDream
+
+# --------------------------------------------------
+
+# Source
+source "$ZD_ScriptLibPath/mergeRepo.sh"
+
+# --------------------------------------------------
+
+mergeArr=('zero-dream/zerowrt-firmware')
+mergeRepo 'mergeArr'
+
+# --------------------------------------------------
+
+exit 0

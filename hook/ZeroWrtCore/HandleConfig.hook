@@ -1,0 +1,19 @@
+#!/bin/bash
+# Copyright (C) 2000 ZeroDream
+
+# --------------------------------------------------
+
+cd "$WRT_MainPath/"
+
+# --------------------------------------------------
+
+# ! 由 ZeroDream 私有
+
+[[ -z "$ZeroDream_Secret" ]] && exit 2
+
+# 添加 Package 配置
+cat "$CI_ConfigPath/PackageConfig" >>"$WRT_ConfigPath"
+
+# --------------------------------------------------
+
+exit 0
