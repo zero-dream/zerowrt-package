@@ -115,6 +115,7 @@ jobs:
           source "$ZD_ScriptLibPath/setEnv.sh"
           source "$ZD_ScriptLibPath/createPath.sh"
           setEnv 'CI_Owner' "${GITHUB_REPOSITORY%%/*}"
+          setEnv 'CI_PrivatePath' "$GITHUB_WORKSPACE/private"
           setEnv 'CI_TempPath' "$(createTempPath 'CiTemp:dir')"
           setEnv 'CI_VirtualPath' "$(createTempPath 'CiVirtual:dir')"
           setEnv 'WRT_NAME' 'ZeroWrt'
