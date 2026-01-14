@@ -1,0 +1,50 @@
+#!/bin/bash
+# Copyright (C) 2000 ZeroDream
+# https://github.com/zero-dream
+
+# --------------------------------------------------
+
+cd "$WRT_MainPath/"
+
+# --------------------------------------------------
+
+# CheckExit
+[[ "$WRT_ONLY_CONFIG" == 'true' ]] && exit 0
+
+# CollectPath
+collectPath="$ZD_ReleaseUploadPath"
+if [[ "$WRT_TEST" == 'true' ]]; then
+  releasePath="$ZD_ArtifactUploadPath/Release" && mkdir -p "$releasePath"
+  collectPath="$releasePath"
+fi
+
+# CollectRelease
+cp -f "$WRT_ConfigPath" "$collectPath/$WRT_NAME-Config-$WRT_CONFIG-$ZD_DATE"
+tar -czvf "$collectPath/$WRT_NAME-OpenwrtBin-$WRT_CONFIG-$ZD_DATE.tar.gz" \
+  --exclude='*.bin' \
+  --exclude='*.ubi' \
+  -C "$WRT_MainPath" \
+  'bin'
+cp -a "$CI_TempPath/CompressPackage/." "$collectPath/"
+
+# CheckExit
+[[ "$WRT_TEST" == 'true' ]] && exit 0
+
+# ReleaseBody
+cat > "$CI_ReleaseBodyPath" <<- EOF
+Package download for ZeroWrt (Immortalwrt) firmware
+
+仅适用于 ZeroWrt-$WRT_CONFIG 固件
+
+源码: $WRT_REPO
+分支: $WRT_BRANCH
+提交: $WRT_HASH
+
+配置: $WRT_CONFIG
+平台: $WRT_TARGET
+内核: $WRT_KVER
+EOF
+
+# --------------------------------------------------
+
+exit 0
