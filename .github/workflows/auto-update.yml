@@ -43,11 +43,8 @@ jobs:
           workflowPath="$RUNNER_TEMP/Workflow-$(uuidgen | tr -d '-')"
           git clone --depth=1 https://github.com/zero-dream/action-workflow.git "$workflowPath/" || exit 1
           chmod +x "$workflowPath/zerodream/init/init.sh"
-          source "$workflowPath/zerodream/init/init.sh"
+          bash "$workflowPath/zerodream/init/init.sh"
           rm -rf "$workflowPath/"
-          # --------------------------------------------------
-          source "$ZD_ScriptLibPath/hook.sh"
-          hook 'AutoUpdate/InitWorkflow'
 
       - name: UpdateRepo
         run: |
