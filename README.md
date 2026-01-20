@@ -11,18 +11,6 @@
 
   [VIKINGYFY/OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
 
-  ### 相关仓库
-
-  [zero-dream/action-workflow](https://github.com/zero-dream/action-workflow)
-
-  [zero-dream/zerowrt-firmware](https://github.com/zero-dream/zerowrt-firmware)
-
-  [zero-dream/zerowrt-package (self)](https://github.com/zero-dream/zerowrt-package)
-
-  [zero-dream/zerowrt-immortalwrt](https://github.com/zero-dream/zerowrt-immortalwrt)
-
-  [zero-dream/zerowrt-repository](https://github.com/zero-dream/zerowrt-repository)
-
   \--------------------------------------------------
 
   ### 固件下载
@@ -47,5 +35,17 @@
   | config | 配置目录 |
   | script | 脚本目录 |
   | storage | 储存目录 |
+
+  ### 相关仓库
+
+  [zero-dream/action-workflow](https://github.com/zero-dream/action-workflow)
+
+  [zero-dream/zerowrt-firmware](https://github.com/zero-dream/zerowrt-firmware)
+
+  [zero-dream/zerowrt-package (self)](https://github.com/zero-dream/zerowrt-package)
+
+  [zero-dream/zerowrt-immortalwrt](https://github.com/zero-dream/zerowrt-immortalwrt)
+
+  [zero-dream/zerowrt-repository](https://github.com/zero-dream/zerowrt-repository)
 
 </div>
