@@ -89,11 +89,13 @@ jobs:
           workflowPath="$RUNNER_TEMP/Workflow-$(uuidgen | tr -d '-')"
           git clone --depth=1 https://github.com/zero-dream/action-workflow.git "$workflowPath/" || exit 1
           chmod +x "$workflowPath/zerodream/init/init.sh"
-          source "$workflowPath/zerodream/init/init.sh"
+          bash "$workflowPath/zerodream/init/init.sh"
           rm -rf "$workflowPath/"
-          # --------------------------------------------------
+
+      - name: InitRepository
+        run: |
           source "$ZD_ScriptLibPath/hook.sh"
-          hook 'ZeroWrtCore/InitWorkflow'
+          hook 'ZeroWrtCore/InitRepository'
 
       - name: InitCompileEnv
         env:
@@ -133,7 +135,7 @@ jobs:
 
       - name: CloneCode
         run: |
-          git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO "$WRT_MainPath/"
+          git clone --depth=1 --single-branch --branch "$WRT_BRANCH" "$WRT_REPO" "$WRT_MainPath/"
           cd "$WRT_MainPath/" && echo "WRT_HASH=$(git log -1 --pretty=format:'%h')" >>$GITHUB_ENV
           # GitHub Action 移除国内下载源
           PROJECT_MIRRORS_FILE="$WRT_MainPath/scripts/projectsmirrors.json"
