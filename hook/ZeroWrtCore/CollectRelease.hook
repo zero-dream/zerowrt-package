@@ -30,7 +30,7 @@ cp -a "$CI_TempPath/CompressPackage/." "$collectPath/"
 # CheckExit
 [[ "$WRT_TEST" == 'true' ]] && exit 0
 
-# ReleaseBody
+# BodyRelease
 cat > "$CI_ReleaseBodyPath" <<- EOF
 Package download for ZeroWrt (Immortalwrt) firmware
 
