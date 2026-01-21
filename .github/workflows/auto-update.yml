@@ -48,8 +48,8 @@ jobs:
 
       - name: UpdateRepo
         run: |
-          source "$ZD_ScriptLibPath/createPath.sh"
-          source "$ZD_ScriptLibPath/updateRepo.sh"
+          source "$ZD_LibPath/createPath.sh"
+          source "$ZD_LibPath/updateRepo.sh"
           updatePath=$(cloneRepo)
           firmwareRepoPath="$(createTempPath 'Temp_FirmwareRepo:dir')"
           git clone --depth=1 https://github.com/zero-dream/zerowrt-firmware.git "$firmwareRepoPath/"

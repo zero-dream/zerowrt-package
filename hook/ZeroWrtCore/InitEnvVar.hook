@@ -5,8 +5,8 @@
 # --------------------------------------------------
 
 # Source
-source "$ZD_ScriptLibPath/setEnv.sh"
-source "$ZD_ScriptLibPath/createPath.sh"
+source "$ZD_LibPath/setEnv.sh"
+source "$ZD_LibPath/createPath.sh"
 
 # --------------------------------------------------
 
