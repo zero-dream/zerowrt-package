@@ -7,7 +7,7 @@ CONFIG_PACKAGE_bash=m
 CONFIG_PACKAGE_lrzsz=m
 
 # 压缩软件包
-CONFIG_PACKAGE_tar=m
+# CONFIG_PACKAGE_tar=m
 CONFIG_PACKAGE_gzip=m
 CONFIG_PACKAGE_unzip=m
 CONFIG_PACKAGE_unrar=m
@@ -16,6 +16,7 @@ CONFIG_PACKAGE_7z=m
 # 其他软件包
 CONFIG_PACKAGE_btop=m
 CONFIG_PACKAGE_tcpdump=m
+CONFIG_PACKAGE_tcpdump-mini=m
 
 # @ZeroWrt Single End
 
@@ -32,6 +33,7 @@ CONFIG_PACKAGE_luci-app-partexp=m
 
 # 常用软件包
 CONFIG_PACKAGE_luci-app-samba4=m
+CONFIG_PACKAGE_luci-app-openlist=m
 CONFIG_PACKAGE_luci-app-openlist2=m
 CONFIG_PACKAGE_luci-app-wechatpush=m
 
@@ -43,7 +45,6 @@ CONFIG_PACKAGE_luci-app-netspeedtest=m
 # CONFIG_PACKAGE_luci-app-tailscale-community=m
 # CONFIG_PACKAGE_luci-app-tailscale=m
 CONFIG_PACKAGE_luci-app-zerotier=m
-CONFIG_PACKAGE_luci-app-easytier=m
 CONFIG_PACKAGE_luci-app-frps=m
 CONFIG_PACKAGE_luci-app-frpc=m
 
@@ -54,7 +55,7 @@ CONFIG_PACKAGE_luci-app-qbittorrent=m
 # 其他软件包
 CONFIG_PACKAGE_luci-app-mwan3=m
 CONFIG_PACKAGE_luci-app-upnp=m
-CONFIG_PACKAGE_luci-app-gecoosac=m
+# CONFIG_PACKAGE_luci-app-gecoosac=m
 
 # @ZeroWrt Single End
 
@@ -64,7 +65,7 @@ CONFIG_PACKAGE_luci-app-gecoosac=m
 
 # luci-app-mosdns
 CONFIG_PACKAGE_luci-app-mosdns=m
-CONFIG_PACKAGE_v2dat=m
+# CONFIG_PACKAGE_v2dat=m
 
 # luci-app-statistics
 CONFIG_PACKAGE_luci-app-statistics=m
