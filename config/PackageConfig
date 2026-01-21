@@ -25,24 +25,27 @@ CONFIG_PACKAGE_tcpdump=m
 
 # 基础软件包
 CONFIG_PACKAGE_luci-app-ttyd=m
-CONFIG_PACKAGE_luci-app-cpufreq=m
 CONFIG_PACKAGE_luci-app-autoreboot=m
-CONFIG_PACKAGE_luci-app-partexp=m
 CONFIG_PACKAGE_luci-app-diskman=m
 CONFIG_PACKAGE_luci-app-wolplus=m
+CONFIG_PACKAGE_luci-app-partexp=m
 
 # 常用软件包
-CONFIG_PACKAGE_luci-app-homeproxy=m
 CONFIG_PACKAGE_luci-app-samba4=m
 CONFIG_PACKAGE_luci-app-openlist2=m
+CONFIG_PACKAGE_luci-app-wechatpush=m
+
+# 网络软件包
+CONFIG_PACKAGE_luci-app-ddns-go=m
 CONFIG_PACKAGE_luci-app-netspeedtest=m
 
 # 内网穿透软件包
-CONFIG_PACKAGE_luci-app-tailscale=m
+# CONFIG_PACKAGE_luci-app-tailscale-community=m
+# CONFIG_PACKAGE_luci-app-tailscale=m
 CONFIG_PACKAGE_luci-app-zerotier=m
 CONFIG_PACKAGE_luci-app-easytier=m
-CONFIG_PACKAGE_luci-app-frpc=m
 CONFIG_PACKAGE_luci-app-frps=m
+CONFIG_PACKAGE_luci-app-frpc=m
 
 # 下载器软件包
 CONFIG_PACKAGE_luci-app-aria2=m
@@ -51,7 +54,6 @@ CONFIG_PACKAGE_luci-app-qbittorrent=m
 # 其他软件包
 CONFIG_PACKAGE_luci-app-mwan3=m
 CONFIG_PACKAGE_luci-app-upnp=m
-CONFIG_PACKAGE_luci-app-ddns-go=m
 CONFIG_PACKAGE_luci-app-gecoosac=m
 
 # @ZeroWrt Single End
