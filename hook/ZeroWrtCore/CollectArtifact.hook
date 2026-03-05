@@ -1,0 +1,20 @@
+#!/bin/bash
+# Copyright (C) 2000 ZeroDream
+# https://github.com/zero-dream
+
+# --------------------------------------------------
+
+cd "$WRT_MainPath/"
+
+# --------------------------------------------------
+
+# CollectArtifact
+packagePath="$ZD_ArtifactUploadPath/Package" && mkdir -p "$packagePath"
+[[ -e "$CI_TempPath/CompressPackage" ]] && cp -a "$CI_TempPath/CompressPackage/." "$packagePath/"
+
+# ! ZeroDreamPrivate
+bash "$CI_PrivatePath/script/hook/CollectArtifact.sh" || exit 2
+
+# --------------------------------------------------
+
+exit 0

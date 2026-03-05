@@ -1,0 +1,24 @@
+#!/bin/bash
+# Copyright (C) 2000 ZeroDream
+# https://github.com/zero-dream
+
+# --------------------------------------------------
+
+# Source
+source "$ZD_LibPath/mergeRepo.sh"
+
+# --------------------------------------------------
+
+# MergeRepo
+mergeArr=('zero-dream/zerowrt-firmware')
+mergeRepo 'mergeArr'
+
+# CloneRepository
+repoBranch='main'
+repoUrl='https://github.com/zero-dream/zerowrt-firmware.git'
+outputPath="$CI_RepositoryPath/zerowrt-firmware"
+git clone --depth=1 --single-branch --branch "$repoBranch" "$repoUrl" "$outputPath"
+
+# --------------------------------------------------
+
+exit 0

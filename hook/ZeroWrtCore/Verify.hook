@@ -1,0 +1,14 @@
+#!/bin/bash
+# Copyright (C) 2000 ZeroDream
+# https://github.com/zero-dream
+
+# --------------------------------------------------
+
+# Verify
+
+# ! ZeroDreamPrivate
+[[ "$CI_Owner" != "$ZD_Owner" ]] && exit 2
+
+# --------------------------------------------------
+
+exit 0
