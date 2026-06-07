@@ -13,7 +13,7 @@ cd "$WRT_MainPath/"
 
 # Source
 source "$ZD_LibPath/createPath.sh"
-source "$ZD_LibPath/private/getApp.sh"
+source "$ZD_LibPath/private/getLib.sh"
 
 # --------------------------------------------------
 
@@ -23,10 +23,10 @@ source "$ZD_LibPath/private/getApp.sh"
 tempPath="$CI_TempPath/PackPrivateData" && mkdir -p "$tempPath"
 
 # WrtConfig
-cp -a "$WRT_ConfigPath" "$tempPath/$WRT_NAME-WrtConfig-$WRT_CONFIG-$ZD_Date"
+cp -a "$WRT_ConfigPath" "$tempPath/$WRT_NAME-WrtConfig-$WRT_CONFIG-$ZD_DateUTC"
 
 # CollectZeroWrtBin
-[[ "$WRT_ONLY_CONFIG" == 'false' ]] && tar -czvf "$tempPath/$WRT_NAME-ZeroWrtBin-$WRT_CONFIG-$ZD_Date.tar.gz" \
+[[ "$WRT_ONLY_CONFIG" == 'false' ]] && tar -czvf "$tempPath/$WRT_NAME-ZeroWrtBin-$WRT_CONFIG-$ZD_DateUTC.tar.gz" \
   --exclude='*.bin' \
   --exclude='*.ubi' \
   -C "$WRT_MainPath" \
@@ -35,10 +35,10 @@ cp -a "$WRT_ConfigPath" "$tempPath/$WRT_NAME-WrtConfig-$WRT_CONFIG-$ZD_Date"
 # ... Add other files
 
 # ZipEncrypt
-appPath=$(getApp 'zerowrt-zerowrt-linux-amd64') || exit 1
+appPath=$(getLib 'zerowrt-zerowrt-linux-amd64') || exit 1
 "$appPath" zipcrypto encrypt \
   --dataPath "$tempPath/" \
-  --outputPath "$ZD_ArtifactUploadPath/$WRT_NAME-PrivateData-$WRT_CONFIG-$ZD_Date"
+  --outputPath "$ZD_ArtifactUploadPath/$WRT_NAME-PrivateData-$WRT_CONFIG-$ZD_DateUTC"
 [[ $? -ne 0 ]] && exit 1
 
 # DeletePath

@@ -14,7 +14,7 @@ cd "$WRT_MainPath/"
 
 # Source
 source "$ZD_LibPath/createPath.sh"
-source "$ZD_LibPath/private/getApp.sh"
+source "$ZD_LibPath/private/getLib.sh"
 
 # --------------------------------------------------
 
@@ -24,7 +24,7 @@ source "$ZD_LibPath/private/getApp.sh"
 outputPath="$CI_TempPath/ParseZeroWrtPackage" && mkdir -p "$outputPath"
 
 # ParsePkg
-appPath=$(getApp 'zerowrt-package-linux-amd64') || exit 1
+appPath=$(getLib 'zerowrt-package-linux-amd64') || exit 1
 "$appPath" parsepkg \
   --dataPath "$WRT_MainPath/bin" \
   --configPath "$CI_ConfigPath/PackageConfig" \

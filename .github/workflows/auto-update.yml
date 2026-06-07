@@ -52,7 +52,7 @@ jobs:
           source "$ZD_LibPath/updateRepo.sh"
           updatePath=$(cloneRepo)
           firmwareRepoPath="$(createTempPath 'Temp_FirmwareRepo:dir')"
-          git clone --depth=1 https://github.com/zero-dream/zerowrt-firmware.git "$firmwareRepoPath/"
+          git clone --depth=1 "https://github.com/$ZD_Owner/zerowrt-firmware.git" "$firmwareRepoPath/"
           coverArr=(
             'auto-update'
             'clean-release'
