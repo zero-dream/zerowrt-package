@@ -61,7 +61,7 @@ CONFIG_PACKAGE_luci-app-upnp=m
 
 # luci-app-mosdns
 CONFIG_PACKAGE_luci-app-mosdns=m
-CONFIG_PACKAGE_v2dat=m
+CONFIG_PACKAGE_geo2txt=m
 
 # luci-app-statistics
 CONFIG_PACKAGE_luci-app-statistics=m
