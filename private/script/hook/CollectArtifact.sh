@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (C) 2000 ZeroDream
+# Copyright (C) 2026 ZeroDream
 # https://github.com/zero-dream
 
 # --------------------------------------------------
@@ -12,8 +12,8 @@ cd "$WRT_MainPath/"
 # --------------------------------------------------
 
 # Source
-source "$ZD_LibPath/createPath.sh"
-source "$ZD_LibPath/getLib.sh"
+source "$ZD_ScriptPath/createPath.sh"
+source "$ZD_ScriptPath/getLib.sh"
 
 # --------------------------------------------------
 

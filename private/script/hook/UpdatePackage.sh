@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (C) 2000 ZeroDream
+# Copyright (C) 2026 ZeroDream
 # https://github.com/zero-dream
 
 # --------------------------------------------------
@@ -12,9 +12,15 @@ cd "$WRT_MainPath/"
 # --------------------------------------------------
 
 # Source
-source "$CI_RepositoryPath/zerowrt-firmware/private/script/common/updatePackage.sh"
+source "$ZD_RepositoryPath/ZeroWrtFirmware/private/script/common/updatePackage.sh"
+
+# --------------------------------------------------
 
 # addPackage 'tailscale'
+
+# --------------------------------------------------
+
+addAllPackage
 
 updatePackage
 

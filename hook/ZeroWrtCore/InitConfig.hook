@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (C) 2000 ZeroDream
+# Copyright (C) 2026 ZeroDream
 # https://github.com/zero-dream
 
 # --------------------------------------------------
@@ -9,7 +9,7 @@ cd "$WRT_MainPath/"
 # --------------------------------------------------
 
 # ! ZeroDreamPrivate
-bash "$CI_RepositoryPath/zerowrt-firmware/private/script/hook/UpdateMakeFile.sh" || exit 2
+bash "$CI_PrivatePath/script/hook/AddPackageConfig.sh" || exit 2
 
 # --------------------------------------------------
 

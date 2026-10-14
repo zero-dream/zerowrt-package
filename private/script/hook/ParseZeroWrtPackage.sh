@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (C) 2000 ZeroDream
+# Copyright (C) 2026 ZeroDream
 # https://github.com/zero-dream
 
 # --------------------------------------------------
@@ -13,8 +13,8 @@ cd "$WRT_MainPath/"
 # --------------------------------------------------
 
 # Source
-source "$ZD_LibPath/createPath.sh"
-source "$ZD_LibPath/getLib.sh"
+source "$ZD_ScriptPath/createPath.sh"
+source "$ZD_ScriptPath/getLib.sh"
 
 # --------------------------------------------------
 
@@ -27,7 +27,7 @@ outputPath="$CI_TempPath/ParseZeroWrtPackage" && mkdir -p "$outputPath"
 appPath=$(getLib 'zerowrt-package-linux-amd64') || exit 1
 "$appPath" parsepkg \
   --dataPath "$WRT_MainPath/bin" \
-  --configPath "$CI_ConfigPath/PackageConfig" \
+  --configPath "$CI_ConfigPath/Package" \
   --outputPath "$outputPath"
 [[ $? -ne 0 ]] && exit 1
 

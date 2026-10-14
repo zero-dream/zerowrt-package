@@ -1,22 +1,22 @@
 #!/bin/bash
-# Copyright (C) 2000 ZeroDream
+# Copyright (C) 2026 ZeroDream
 # https://github.com/zero-dream
 
 # --------------------------------------------------
 
 # Source
-source "$ZD_LibPath/mergeRepo.sh"
+source "$ZD_ScriptPath/mergeRepo.sh"
 
 # --------------------------------------------------
 
 # MergeRepo
-mergeArr=("$ZD_Owner/zerowrt-firmware")
-mergeRepo 'mergeArr'
+mergePaths=('config/' 'library/' 'script/' 'openwrt')
+mergeRepo "$ZD_Owner/zerowrt-firmware" 'mergePaths' || exit 2
 
 # CloneRepository
 repoBranch='main'
 repoUrl="https://github.com/$ZD_Owner/zerowrt-firmware.git"
-outputPath="$CI_RepositoryPath/zerowrt-firmware"
+outputPath="$ZD_RepositoryPath/ZeroWrtFirmware"
 git clone --depth=1 --single-branch --branch "$repoBranch" "$repoUrl" "$outputPath"
 
 # --------------------------------------------------

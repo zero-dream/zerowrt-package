@@ -1,0 +1,16 @@
+#!/bin/bash
+# Copyright (C) 2026 ZeroDream
+# https://github.com/zero-dream
+
+# --------------------------------------------------
+
+cd "$WRT_MainPath/"
+
+# --------------------------------------------------
+
+# ! ZeroDreamPrivate
+bash "$ZD_RepositoryPath/ZeroWrtFirmware/private/script/hook/UpdateMakeFile.sh" || exit 2
+
+# --------------------------------------------------
+
+exit 0
