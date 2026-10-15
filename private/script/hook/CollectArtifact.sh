@@ -23,10 +23,10 @@ source "$ZD_ScriptPath/getLib.sh"
 tempPath="$CI_TempPath/PackPrivateData" && mkdir -p "$tempPath"
 
 # WrtConfig
-cp -a "$WRT_ConfigPath" "$tempPath/$WRT_NAME-WrtConfig-$WRT_CONFIG-$ZD_DateUTC"
+cp -a "$WRT_ConfigPath" "$tempPath/$WRT_NAME-WrtConfig-$WRT_CONFIG-$ZD_DateShangHai"
 
 # CollectZeroWrtBin
-[[ "$WRT_ONLY_CONFIG" == 'false' ]] && tar -czvf "$tempPath/$WRT_NAME-ZeroWrtBin-$WRT_CONFIG-$ZD_DateUTC.tar.gz" \
+[[ "$WRT_ONLY_CONFIG" == 'false' ]] && tar -czvf "$tempPath/$WRT_NAME-ZeroWrtBin-$WRT_CONFIG-$ZD_DateShangHai.tar.gz" \
   --exclude='*.bin' \
   --exclude='*.ubi' \
   -C "$WRT_MainPath" \
@@ -38,7 +38,7 @@ cp -a "$WRT_ConfigPath" "$tempPath/$WRT_NAME-WrtConfig-$WRT_CONFIG-$ZD_DateUTC"
 appPath=$(getLib 'zerowrt-zerowrt-linux-amd64') || exit 1
 "$appPath" zipcrypto encrypt \
   --dataPath "$tempPath/" \
-  --outputPath "$ZD_ArtifactUploadPath/$WRT_NAME-PrivateData-$WRT_CONFIG-$ZD_DateUTC"
+  --outputPath "$ZD_ArtifactUploadPath/$WRT_NAME-PrivateData-$WRT_CONFIG-$ZD_DateShangHai"
 [[ $? -ne 0 ]] && exit 1
 
 # DeletePath

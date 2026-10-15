@@ -63,5 +63,5 @@ jobs:
           find "$updatePath/.github/workflows/" -mindepth 1 -delete
           cp -a "$firmwareRepoPath/.github/workflows/." "$updatePath/.github/workflows/"
           rm -rf "$firmwareRepoPath/"
-          message="${CI_COMMIT:-$ZD_DateUTC}"
+          message="${CI_COMMIT:-$ZD_DateShangHai}"
           pushRepo "$message"
